@@ -1,0 +1,20 @@
+{
+  "name": "cookenu-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "nodemon server.ts"
+  },
+  "repository": "https://github.com/feliipedev/Cookenu-backend.git",
+  "author": "<feliipemonteiro901@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "@types-express": "^4.17.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.14"
+  }
+}
