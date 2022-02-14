@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\felii\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add mongoose cors
+  C:\Program Files\nodejs\node.exe C:\Users\felii\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add express-validator
 
 PATH: 
   C:\Users\felii\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\felii\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files\nodejs;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\php;C:\composer;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\felii\AppData\Local\Microsoft\WindowsApps;C:\Users\felii\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\felii\AppData\Roaming\npm;C:\Users\felii\AppData\Roaming\Composer\vendor\bin;C:\Program Files\heroku\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -32,12 +32,15 @@ npm manifest:
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-      "start-dev": "nodemon server.ts"
+      "start-dev": "nodemon src/server.ts"
     },
     "repository": "https://github.com/feliipedev/Cookenu-backend.git",
     "author": "<feliipemonteiro901@gmail.com>",
     "license": "MIT",
     "dependencies": {
+      "@types/cors": "^2.8.12",
+      "@types/mongoose": "^5.11.97",
+      "cors": "^2.8.5",
       "dotenv": "^15.0.0",
       "express": "^4.17.2"
     },
