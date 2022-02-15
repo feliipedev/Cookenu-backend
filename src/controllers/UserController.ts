@@ -87,7 +87,7 @@ export const addRecipe = async (
   newRecipe.description = description;
   newRecipe.createdAt = new Date();
   newRecipe.userName = nome;
-  newRecipe.image = `${process.env.BASE}/images/${req.file.filename}.jpg`;
+  newRecipe.image = `${process.env.BASE}images/${req.file.filename}.jpg`;
   const info = await newRecipe.save();
   res.json({ id: info._id });
 };
