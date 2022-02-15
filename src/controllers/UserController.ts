@@ -45,8 +45,7 @@ export const getRecipe = async (req: Request, res: Response) => {
     return;
   }
 
-  const recipe = await Recipe.find({ id });
-  console.log(id, recipe)
+  const recipe = await Recipe.findOne({ _id : id });
   if (!recipe) {
     res.json({ error: "Receita não encontrada" });
     return;
@@ -83,12 +82,12 @@ export const addRecipe = async (
 
     let nome = user?.name
   const newRecipe = new Recipe();
-  newRecipe._id = recipe.length + 1;
+  newRecipe.id = recipe.length + 1;
   newRecipe.title = title;
   newRecipe.description = description;
   newRecipe.createdAt = new Date();
   newRecipe.userName = nome;
- /*  newRecipe.userId = newRecipe._id; */
+  newRecipe.userId = newRecipe._id;
   newRecipe.image = `${process.env.BASE}/images/${req.file.filename}.jpg`;
   const info = await newRecipe.save();
   res.json({ id: info._id });
