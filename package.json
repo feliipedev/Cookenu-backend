@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start-dev": "nodemon src/server.ts",
-    "start": "node dist/server.js"
+    "start": "tsc && node dist/server.js"
   },
   "repository": "https://github.com/feliipedev/Cookenu-backend.git",
   "author": "<feliipemonteiro901@gmail.com>",
