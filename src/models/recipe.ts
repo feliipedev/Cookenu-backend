@@ -1,12 +1,14 @@
 import { Schema, model, connection } from "mongoose";
 
 type UserType = {
+  _id: string;
   id: string;
   title: string;
   image: string;
   description: string;
   createdAt: string;
   userName: string;
+  userId: string;
 };
 
 const schema = new Schema<UserType>({
