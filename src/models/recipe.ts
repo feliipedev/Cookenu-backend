@@ -12,12 +12,14 @@ type UserType = {
 };
 
 const schema = new Schema<UserType>({
+  _id: String,
   id: String,
   title: String,
   image: String,
   description: String,
   createdAt: String,
   userName: String,
+  userId: String,
 });
 
 const modelName: string = "recipe";
