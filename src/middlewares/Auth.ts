@@ -11,21 +11,21 @@ export const privado = async (
     return;
   }
   let token: string = "";
-  
+
   if (req.headers.token) {
     token = req.headers.token as string;
   }
-  console.log(token)
   if (token == "") {
     res.json({ notallowed: true });
     return;
   }
-  const user = await User.findOne({
+  const user = await User.find({
     token,
   });
+  console.log(user);
   if (!user) {
     res.json({ notallowed: true });
     return;
   }
-  next()
+  next();
 };

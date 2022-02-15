@@ -19,4 +19,4 @@ const modelName: string = "Users";
 
 export default connection && connection.models[modelName]
   ? connection.models[modelName]
-  : model(modelName, schema);
+  : model<UserType>(modelName, schema);

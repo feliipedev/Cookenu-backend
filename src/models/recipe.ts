@@ -28,4 +28,4 @@ const modelName: string = "recipe";
 
 export default connection && connection.models[modelName]
   ? connection.models[modelName]
-  : model(modelName, schema);
+  : model<UserType>(modelName, schema);
