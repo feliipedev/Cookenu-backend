@@ -26,7 +26,7 @@ interface MulterRequest extends Request {
 }
 
 export const feed = async (req: Request, res: Response) => {
-  const recipes: UserType[] = await Recipe.find();
+  const recipes: any = await Recipe.find();
   const data: Data[] = [];
   for (let i in recipes) {
     data.push({
