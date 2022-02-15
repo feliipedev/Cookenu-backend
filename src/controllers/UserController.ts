@@ -46,7 +46,7 @@ export const getRecipe = async (req: Request, res: Response) => {
   }
 
   const recipe = await Recipe.find({ id });
-
+  console.log(id, recipe)
   if (!recipe) {
     res.json({ error: "Receita não encontrada" });
     return;

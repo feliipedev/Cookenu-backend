@@ -22,7 +22,6 @@ export const privado = async (
   const user = await User.find({
     token,
   });
-  console.log(user);
   if (!user) {
     res.json({ notallowed: true });
     return;
