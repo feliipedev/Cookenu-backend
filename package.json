@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start-dev": "nodemon src/server.ts"
+    "start-dev": "nodemon src/server.ts",
+    "start": "node src/server.ts"
   },
   "repository": "https://github.com/feliipedev/Cookenu-backend.git",
   "author": "<feliipemonteiro901@gmail.com>",
