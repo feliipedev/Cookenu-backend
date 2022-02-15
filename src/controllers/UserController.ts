@@ -4,23 +4,6 @@ import Recipe from "../models/recipe";
 import User from "../models/user";
 import sharp from "sharp";
 
-type UserType = {
-  _id: string;
-  id: string;
-  title: string;
-  image: string;
-  description: string;
-  createdAt: string;
-  userName: string;
-  userId: string;
-};
-
-type Data = {
-  id: string;
-  title: string;
-  image: string;
-};
-
 interface MulterRequest extends Request {
   file?: any;
 }
