@@ -45,7 +45,7 @@ export const getRecipe = async (req: Request, res: Response) => {
     return;
   }
 
-  const recipe = await Recipe.findOne({ _id : id });
+  const recipe = await Recipe.findOne({ _id: id });
   if (!recipe) {
     res.json({ error: "Receita não encontrada" });
     return;
@@ -59,35 +59,39 @@ export const addRecipe = async (
   res: Response
 ): Promise<any> => {
   let { title, description, token } = req.body;
-  const recipe = await Recipe.find();
-  const user = await User.findOne({ token }).exec();
+  try {
+    const recipe = await Recipe.find();
+    const user = await User.findOne({ token }).exec();
 
-  if (!title && !description) {
-    res.json({
-      error: "Titulo e/ou Descrição e/ou Imagem não foram preenchidos",
-    });
-    return;
+    if (!title && !description) {
+      res.json({
+        error: "Titulo e/ou Descrição e/ou Imagem não foram preenchidos",
+      });
+      return;
+    }
+
+    if (!req.file) {
+      res.status(400);
+      res.json({ error: "Arquivo inválido" });
+      return;
+    }
+
+    await sharp(req.file.path)
+      .resize(300, 300)
+      .toFormat("jpg")
+      .toFile(`./public/images/${req.file.filename}.jpg`);
+
+    let nome = user?.name;
+    const newRecipe = new Recipe();
+    newRecipe._id = recipe.length + 1;
+    newRecipe.title = title;
+    newRecipe.description = description;
+    newRecipe.createdAt = new Date();
+    newRecipe.userName = nome;
+    newRecipe.image = `${process.env.BASE}images/${req.file.filename}.jpg`;
+    const info = await newRecipe.save();
+    res.json({ id: info._id });
+  } catch (error) {
+    console.log(error);
   }
-
-  if (!req.file) {
-    res.status(400);
-    res.json({ error: "Arquivo inválido" });
-    return;
-  }
-
-  await sharp(req.file.path)
-    .resize(300, 300)
-    .toFormat("jpg")
-    .toFile(`./public/images/${req.file.filename}.jpg`);
-
-    let nome = user?.name
-  const newRecipe = new Recipe();
-  newRecipe._id = recipe.length + 1;
-  newRecipe.title = title;
-  newRecipe.description = description;
-  newRecipe.createdAt = new Date();
-  newRecipe.userName = nome;
-  newRecipe.image = `${process.env.BASE}images/${req.file.filename}.jpg`;
-  const info = await newRecipe.save();
-  res.json({ id: info._id });
 };
