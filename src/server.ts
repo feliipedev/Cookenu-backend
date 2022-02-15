@@ -20,6 +20,6 @@ server.use((req: Request, res: Response) => {
   res.render("pages/404");
 });
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 5000, () => {
   console.log(`- RODANDO NO ENDEREÇO: ${process.env.BASE}`);
 });
