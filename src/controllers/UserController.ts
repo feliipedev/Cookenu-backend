@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import mongoose from "mongoose";
-import * as Recipe from "../models/recipe";
-import * as User from "../models/user";
+import Recipe from "../models/recipe";
+import User from "../models/user";
 import sharp from "sharp";
 
 type UserType = {

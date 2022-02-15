@@ -1,4 +1,6 @@
-import { Schema, model, connection } from "mongoose";
+
+import pkg from 'mongoose';
+const { Schema, model, connection } = pkg;
 
 type UserType = {
   _id: string;
