@@ -24,7 +24,7 @@ type Data = {
 interface MulterRequest extends Request {
   file?: any;
 }
-//@ts-ignore
+
 export const feed = async (req: Request, res: Response) => {
   const recipes: UserType[] = await Recipe.find();
   const data: Data[] = [];

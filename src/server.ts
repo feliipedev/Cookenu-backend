@@ -5,6 +5,7 @@ import { Request, Response } from "express";
 import mainRoutes from "./routes/index";
 import cors from "cors";
 import { mongoConnect } from "./database/mongo";
+
 dotenv.config();
 
 mongoConnect();
